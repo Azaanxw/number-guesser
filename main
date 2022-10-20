@@ -1,0 +1,26 @@
+from random import randint
+lives = None
+difficulty_level = input("Choose your difficulty level: E for easy, M for medium and H for hard: ").lower()
+if difficulty_level == "e":
+    lives = 10
+elif difficulty_level == "m":
+    lives = 7
+else:
+    lives = 5
+actual_num = randint(1,100)
+print(actual_num)
+game_on = True
+while game_on:
+    if lives > 0:
+        guess = int(input("Choose a number between 1 and 100: "))
+    else:
+        print("You lost!")
+        exit()
+    if guess == actual_num:
+        print("You win!")
+    elif guess > actual_num:
+        lives -= 1
+        print(f"Guess is too high! you have {lives} remaining.")
+    elif guess < actual_num: 
+        lives -= 1
+        print(f"Guess is too low! you have {lives} remaining.")
